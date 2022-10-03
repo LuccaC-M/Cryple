@@ -3,7 +3,7 @@
 #include <cctype>
 
 void a1z26_ciph() {
-
+//  Variables
     std::string sText, sCipher, sKey;
     int iTemp;
 
@@ -11,11 +11,13 @@ void a1z26_ciph() {
     std::cin.ignore();
     std::getline(std::cin, sText);
 
+//  for loop to define the cipher text    
     for (int i = 0; i < sText.length(); i++) {
         
         if (isalpha(sText[i]) && isupper(sText[i])) {
 
             iTemp = sText[i] - 'A' + 1;
+                              //passing iTemp to a string
             sCipher = sCipher + std::to_string(iTemp) + " ";
         }
         else if (isalpha(sText[i]))
@@ -29,7 +31,7 @@ void a1z26_ciph() {
         }
 
     }
-    
+//  printing out Cipher text    
     std::cout << sCipher << std::endl;
 }   
 
