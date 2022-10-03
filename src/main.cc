@@ -1,17 +1,19 @@
 #include <iostream>
 #include <string>
 #include "caesar.hpp"
+#include "A1Z26.hpp"
 
-#define MAX 1
+#define MAX 2
 
-int chooseciph() {
+int choose_ciph() {
 
 	int iTypecyph;
 
 	std::cout 
 		<< "What type of encryption you want"
 		<< std::endl
-		<< "1 - Caesar Cipher"
+		<< "1 - Caesar Cipher\n"
+		<< "2 - A1Z26"
 		<< std::endl
 		<< "> ";
 	std::cin >> iTypecyph;
@@ -19,7 +21,7 @@ int chooseciph() {
 	if (iTypecyph > MAX || iTypecyph <= 0)
 	{
 		std::cout << std::endl << "INVALID NUMBER" << std::endl;
-		chooseciph();
+		choose_ciph();
 	}
 	else {
 		return iTypecyph;
@@ -29,7 +31,7 @@ int chooseciph() {
 
 int main(int argc, char *argv[]) {
 
-	int iTypecyph = chooseciph();
+	int iTypecyph = choose_ciph();
 	int iDeen = 0;
 
 	do {
@@ -49,9 +51,11 @@ int main(int argc, char *argv[]) {
 			 std::cout << "ERROR\n";
 			 return 1;
 			case 1:
-			 caesarciph();
+			 caesar_ciph();
 			 break;
-		
+			case 2:
+			 a1z26_ciph();
+			 break;
 			default:
 			 break;
 		}
@@ -63,9 +67,11 @@ int main(int argc, char *argv[]) {
 			 std::cout << "ERROR\n";
 			 return 1;
 			case 1:
-		//	 caesardeciph();
+			 caesar_deciph();
 			 break;
-		
+			case 2:
+			 std::cout << "W.I.P." << std::endl;
+			 break;
 			default:
 			 break;
 		}

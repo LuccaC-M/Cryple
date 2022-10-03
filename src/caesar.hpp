@@ -1,2 +1,2 @@
-void caesarciph();
-//void caesardeciph();
+void caesar_ciph();
+void caesar_deciph();
