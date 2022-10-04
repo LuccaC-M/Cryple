@@ -31,48 +31,47 @@ int choose_ciph() {
 
 int main(int argc, char *argv[]) {
 
-	int iTypecyph = choose_ciph();
-	int iDeen = 0;
-
-	do {
+	if (argc == 1) {
+		std::cout 
+			<< "Usage: cryple e/d [...]\n"
+			<< "cryple {e -c}\n"
+			<< "cryple {e -a}\n";
+	}
+	if (argc = 2) {
 		std::cout
-			<< std::endl
-	    	<< "1 - Encrypt\n" 
-	    	<< "2 - Decrypt\n"
-			<< std::endl
-			<< "> ";
-		std::cin >> iDeen;
-	} while(iDeen <= 0 || iDeen > 2);
+			<< "Please choose an encryption method\n"
+			<< "-c Caesar cipher\n"
+			<< "-a A1Z26 cipher\n"
+	}
 	
-	if (iDeen == 1) {	
-		switch(iTypecyph) {
+	std::string sTypecyph = argv[2];
+	std::string sDeen = argv[1];
+	
+	if (sDeen == "encryption" || sDeen == "e") {	
+		switch(sTypecyph) {
 		
-			case 0:
-			 std::cout << "ERROR\n";
-			 return 1;
-			case 1:
+			case "-c":
 			 caesar_ciph();
 			 break;
-			case 2:
+			case "-a":
 			 a1z26_ciph();
 			 break;
 			default:
+			 std::cout << "Invalid method" << std::endl;
 			 break;
 		}
 	}
-	else if (iDeen == 2) {	
-		switch(iTypecyph) {
-		
-			case 0:
-			 std::cout << "ERROR\n";
-			 return 1;
-			case 1:
+	else if (sDeen == "decryption" || sDeen == "d") {	
+		switch(sTypecyph) {
+
+			case "-c":
 			 caesar_deciph();
 			 break;
-			case 2:
+			case "-a":
 			 std::cout << "W.I.P." << std::endl;
 			 break;
 			default:
+			 std::cout << "Invalid method" << std::endl;
 			 break;
 		}
 	}
