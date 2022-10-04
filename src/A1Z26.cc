@@ -8,7 +8,6 @@ void a1z26_ciph() {
     int iTemp;
 
     std::cout << "Enter text > ";
-    std::cin.ignore();
     std::getline(std::cin, sText);
 
 //  for loop to define the cipher text    

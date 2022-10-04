@@ -2,7 +2,7 @@
 #include <string>
 #include <cctype>
 
-#define MAXKEY 25
+#define MAXKEY 26
 void caesar_ciph() {
 
     std::string sText, sCipher;
@@ -10,7 +10,6 @@ void caesar_ciph() {
 
     do {
         std::cout << "Enter key > ";
-        std::cin.ignore();
         std::cin >> iKey;
     } while(iKey < 0 || iKey > MAXKEY);
     
@@ -34,13 +33,15 @@ void caesar_ciph() {
 void caesar_deciph() {
 
     std::string sText, sDecipher;
-    int iKey;
+    int iKey = 0;
 
     do {
         std::cout << "Enter key > ";
-        std::cin.ignore();
         std::cin >> iKey;
-    } while(iKey < 0 || iKey > MAXKEY);
+
+    } while(iKey <= 0 || iKey >= MAXKEY);
+    
+    std::cout << iKey;
     
     std::cout << "Enter text > ";
     std::cin.ignore();
