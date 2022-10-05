@@ -44,9 +44,15 @@ void a1z26_deciph() {
 //  for loop to decrypt the text    
     for (int i = 0; i < sText.length(); i++) {
         
-        if (isdigit(sText[i])) {
+
+        if (isdigit(sText[i]) && !isdigit(sText[i+1])) {
 
             sDecipher = sDecipher + (char)(sText[i] + 48);
+        }
+        else if (isdigit(sText[i+1])) {
+            iTemp = (((((sText[i] - 48) * 10) - 1) + (sText[i+1] - 48)) + 'a');
+            sDecipher = sDecipher + (char) iTemp;
+            i++;
         }
         else {
             sDecipher = sDecipher + sText[i];
