@@ -49,12 +49,12 @@ void a1z26_deciph() {
 
             sDecipher = sDecipher + (char)(sText[i] + 48);
         }
-        else if (isdigit(sText[i+1])) {
+        else if (isdigit(sText[i]) && isdigit(sText[i+1])) {
             iTemp = (((((sText[i] - 48) * 10) - 1) + (sText[i+1] - 48)) + 'a');
             sDecipher = sDecipher + (char) iTemp;
             i++;
         }
-        else {
+        else if (!isspace(sText[i])) {
             sDecipher = sDecipher + sText[i];
         }
 
