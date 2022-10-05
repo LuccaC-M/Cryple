@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
 			return 0;
 		}
 		else if(sTypecyph == "-a") {
-			std::cout << "W.I.P" << std::endl;
+			a1z26_deciph();
 			return 0;
 		}
 		else {

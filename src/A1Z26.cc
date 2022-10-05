@@ -25,12 +25,35 @@ void a1z26_ciph() {
             iTemp = sText[i] - 'a' + 1;
             sCipher = sCipher + std::to_string(iTemp) + " ";
         }
-        else if (isspace(sText[i]) == 0) {
-            sCipher = sCipher + "(" + sText[i] + ")" + " ";
+        else {
+            sCipher = sCipher + sText[i];
         }
 
     }
 //  printing out Cipher text    
     std::cout << sCipher << std::endl;
 }   
+void a1z26_deciph() {
+//  Variables
+    std::string sText, sDecipher, sKey;
+    int iTemp;
+
+    std::cout << "Enter text > ";
+    std::getline(std::cin, sText);
+
+//  for loop to decrypt the text    
+    for (int i = 0; i < sText.length(); i++) {
+        
+        if (isdigit(sText[i])) {
+
+            sDecipher = sDecipher + (char)(sText[i] + 48);
+        }
+        else {
+            sDecipher = sDecipher + sText[i];
+        }
+
+    }
+//  printing out Cipher text    
+    std::cout << sDecipher << std::endl;
+} 
 
