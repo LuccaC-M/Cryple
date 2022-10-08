@@ -2,6 +2,7 @@
 #include <string>
 #include <cctype>
 
+
 void a1z26_ciph() {
 //  Variables
     std::string sText, sCipher, sKey;
