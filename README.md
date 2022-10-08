@@ -1,5 +1,5 @@
 <h1 align = "center">
- <img src=https://raw.githubusercontent.com/LuccaC-M/LuccaC-M/master/img/Cryple.png alt="Banner">
+ <img src=https://raw.githubusercontent.com/LuccaC-M/LuccaC-M/master/img/Cryple.png alt="Banner"/>
 </h1>
 <p align="center"> 
 <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noreferrer"> 
@@ -9,5 +9,8 @@
 <img src="https://img.shields.io/badge/Made%20With-C%2B%2B-00285A?labelColor=003371&logo=cplusplus&style=for-the-badge" alt="?" width="170" height="30"/> 
 </a> 
 </p>
+</br>
 
-A simple text encrypter that can encrypt in multiple forms
+## Intoduction
+
+Cryple is an open-source text encrypter that encrypts in many ways
