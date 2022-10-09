@@ -25,9 +25,11 @@ all: $(NAME)
 $(NAME): $(SRCS)
 	$(CXX) -o $(NAME) $(SRCS)
 	$(info CREATED $(NAME))
+	mkdir -p ~/.local/bin/
+	mv $(NAME) ~/.local/bin
 
 clean:
-	$(RM) $(NAME)
+	$(RM) ~/.local/bin/$(NAME)
 
 re:
 	$(MAKE) clean
