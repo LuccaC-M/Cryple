@@ -1,22 +1,24 @@
 
 
-NAME        := cryple
+NAME := cryple
 
-SRC_DIR     := src
-SRCS        :=  \
+SRC_DIR := src
+SRCS :=  \
 	main.cc \
     caesar.cc \
     affine.cc \
 	A1Z26.cc \
 	cmd.cc 
-SRCS        := $(SRCS:%=$(SRC_DIR)/%)
+SRCS := $(SRCS:%=$(SRC_DIR)/%)
 
-CXX          := g++
-
-
-RM          := rm -f
+CXX := g++
 
 
+RM := rm -f
+
+
+# make installs the program
+# make clean unistalls it
 
 all: $(NAME)
 
