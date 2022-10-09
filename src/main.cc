@@ -1,8 +1,12 @@
+// BEGIN OF INCLUDES
 #include <iostream>
 #include <string>
+#include "cmd.hh"
 #include "caesar.hh"
 #include "A1Z26.hh"
 #include "affine.hh"
+// END OF INCLUDES
+
 #define MAX 2
 
 int main(int argc, char *argv[]) {
@@ -25,17 +29,22 @@ int main(int argc, char *argv[]) {
 	std::string sTypecyph = argv[2];
 	std::string sDeen = argv[1];
 	
+	cmd_options(sTypecyph);
+
 	if (sDeen == "encryption" || sDeen == "e") {	
 		
-		if (sTypecyph == "-c") {
+		while (true) {
+		if (bCaesar) {
 			caesar_ciph();
+			bCaesar = false;
 			return 0;
 		}
-		else if(sTypecyph == "-a") {
+		else if(bAZ) {
 			a1z26_ciph();
+			bAZ = false
 			return 0;
 		}
-		else if(sTypecyph == "-f") {
+		else if(bAffine) {
 			affine_ciph();
 			return 0;
 		}
@@ -46,15 +55,15 @@ int main(int argc, char *argv[]) {
 	}
 	else if (sDeen == "decryption" || sDeen == "d") {	
 
-		if (sTypecyph == "-c") {
+		if (bCaesar) {
 			caesar_deciph();
 			return 0;
 		}
-		else if(sTypecyph == "-a") {
+		else if(bAZ) {
 			a1z26_deciph();
 			return 0;
 		}
-		else if(sTypecyph == "-f") {
+		else if(bAffine) {
 			affine_deciph();
 			return 0;
 		}
