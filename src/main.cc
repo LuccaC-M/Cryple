@@ -33,15 +33,12 @@ int main(int argc, char *argv[]) {
 
 	if (sDeen == "encryption" || sDeen == "e") {	
 		
-		while (true) {
 		if (bCaesar) {
 			caesar_ciph();
-			bCaesar = false;
 			return 0;
 		}
 		else if(bAZ) {
 			a1z26_ciph();
-			bAZ = false
 			return 0;
 		}
 		else if(bAffine) {
