@@ -36,7 +36,7 @@ Cryple is an open-source, basic file encrypter for the cli, written in c++.
 
 ## :toolbox: Getting Started
 
-## :pencil: Prerequisites
+### :pencil: Prerequisites
 
 For now you only need a c++ compiler.
 
