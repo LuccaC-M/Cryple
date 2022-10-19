@@ -53,6 +53,7 @@ void affine_deciph() {
         if (isalpha(sText[i]) && isupper(sText[i])) {
             sDecipher = sDecipher + (char) (((sText[i] - 'A') / iKey1 - iKey2) % 26 + 'A');
         }
+        // FIXME: Do not printing right output
         else if (isalpha(sText[i])) {
             sDecipher = sDecipher + (char) (((sText[i] - 'a') / iKey1 - iKey2) % 26 + 'a');
         }

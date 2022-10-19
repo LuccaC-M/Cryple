@@ -11,24 +11,27 @@
 
 int main(int argc, char *argv[]) {
 
-	if (argc == 1) {
-		std::cout 
-			<< "Usage: cryple e/d [...]\n"
-			<< "cryple {e -c}\n"
-			<< "cryple {e -a}\n";
-			return 1;
-	}
-	if (argc == 2) {
-		std::cout
-			<< "Please choose an encryption method\n"
-			<< "-c Caesar cipher\n"
-			<< "-a A1Z26 cipher\n";
-			return 2;
-	}
-	
 	std::string sTypecyph = argv[2];
 	std::string sDeen = argv[1];
-	
+
+
+	if (argc >= 2 && (argv[1] == "e" || argv[1] == "encryption")) {
+
+		std::cout << "Enter a valid type of encryption" << std::endl;
+		return 1;
+	}
+	else {
+
+		std::cout
+			<< "Usage:\n"
+			<< "       cryple {command} {arguments}\n"
+			<< "Example:\n"
+			<< "       cryple e -c\n"
+			<< "       cryple d -a\n";
+		return 2;
+	}
+
+
 	cmd_options(sTypecyph);
 
 	if (sDeen == "encryption" || sDeen == "e") {	
