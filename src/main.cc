@@ -9,30 +9,20 @@
 
 #define MAX 2
 
-int main(int argc, char *argv[]) {
+int main(const int argc, const char *argv[]) {
 
-	std::string sTypecyph = argv[2];
-	std::string sDeen = argv[1];
-
-
-	if (argc >= 2 && (argv[1] == "e" || argv[1] == "encryption")) {
-
-		std::cout << "Enter a valid type of encryption" << std::endl;
+	if (argc < 2) {
+		cmd::help();
 		return 1;
-	}
-	else {
-
-		std::cout
-			<< "Usage:\n"
-			<< "       cryple {command} {arguments}\n"
-			<< "Example:\n"
-			<< "       cryple e -c\n"
-			<< "       cryple d -a\n";
-		return 2;
+	} else if ((std::string) argv[1] == "--help") {
+		cmd::help();
+		return 0;
 	}
 
+	 std::string sTypecyph = argv[2];
+     std::string sDeen = argv[1];
 
-	cmd_options(sTypecyph);
+	 cmd::options(sTypecyph);
 
 	if (sDeen == "encryption" || sDeen == "e") {	
 		
