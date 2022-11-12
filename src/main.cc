@@ -1,10 +1,10 @@
 // BEGIN OF INCLUDES
 #include <iostream>
 #include <string>
-#include "cmd.hh"
-#include "caesar.hh"
-#include "A1Z26.hh"
-#include "affine.hh"
+#include "cmd.h"
+#include "caesar.h"
+#include "A1Z26.h"
+#include "affine.h"
 // END OF INCLUDES
 
 #define MAX 2
@@ -31,7 +31,7 @@ int main(const int argc, const char *argv[]) {
 			return 0;
 		}
 		else if(bAZ) {
-			a1z26_ciph();
+			az::ciph();
 			return 0;
 		}
 		else if(bAffine) {
@@ -50,7 +50,7 @@ int main(const int argc, const char *argv[]) {
 			return 0;
 		}
 		else if(bAZ) {
-			a1z26_deciph();
+			az::deciph();
 			return 0;
 		}
 		else if(bAffine) {
