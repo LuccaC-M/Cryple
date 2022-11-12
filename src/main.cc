@@ -27,7 +27,7 @@ int main(const int argc, const char *argv[]) {
 	if (sDeen == "encryption" || sDeen == "e") {	
 		
 		if (bCaesar) {
-			caesar_ciph();
+			caesar::ciph();
 			return 0;
 		}
 		else if(bAZ) {
@@ -46,7 +46,7 @@ int main(const int argc, const char *argv[]) {
 	else if (sDeen == "decryption" || sDeen == "d") {	
 
 		if (bCaesar) {
-			caesar_deciph();
+			caesar::deciph();
 			return 0;
 		}
 		else if(bAZ) {
