@@ -1,6 +1,5 @@
 #include "cmd.h"
-#include <string>
-#include <iostream>
+
 
 bool bCaesar = false, bAffine = false, bAZ = false;
 
