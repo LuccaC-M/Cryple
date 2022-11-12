@@ -35,7 +35,7 @@ int main(const int argc, const char *argv[]) {
 			return 0;
 		}
 		else if(bAffine) {
-			affine_ciph();
+			affine::ciph();
 			return 0;
 		}
 		else {
@@ -54,7 +54,7 @@ int main(const int argc, const char *argv[]) {
 			return 0;
 		}
 		else if(bAffine) {
-			affine_deciph();
+			affine::deciph();
 			return 0;
 		}
 		else {
