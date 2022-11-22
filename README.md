@@ -32,7 +32,7 @@
  + [List of supported ciphers](#page_facing_up-list-of-supported-ciphers)
 ## :star: About the Project 
 
-Cryple is an open-source, basic file encrypter for the cli, written in c++.
+Cryple is an open-source, basic text encrypter for the cli, written in c++.
 
 ## :toolbox: Getting Started
 
