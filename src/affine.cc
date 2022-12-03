@@ -1,6 +1,16 @@
 #include "affine.h"
 
 namespace affine {
+
+    int modInverse(int num, int mod) {
+        int flag;
+        for (int i = 0; i < mod; i++) {
+            flag = (num * i) % mod;
+            if (flag == 1)
+                return i;
+        }
+    }
+
     void ciph() {
         
         std::string sText, sCipher;
@@ -47,14 +57,16 @@ namespace affine {
         std::cin.ignore();
         std::getline(std::cin, sText);
         
+        int iKey3 = modInverse(iKey1, 26);
+
         for (int i = 0; i <= sText.length(); i++) {
 
             if (isalpha(sText[i]) && isupper(sText[i])) {
-                sDecipher = sDecipher + (char) (((sText[i] - 'A') / iKey1 - iKey2) % 26 + 'A');
+                sDecipher = sDecipher + (char) (((iKey3 * ((sText[i]-'A' - iKey2)) % 26)) + 'A'); 
             }
             // FIXME: Do not printing right output
             else if (isalpha(sText[i])) {
-                sDecipher = sDecipher + (char) (((sText[i] - 'a') / iKey1 - iKey2) % 26 + 'a');
+                sDecipher = sDecipher + (char) (((iKey3 * ((sText[i]+'a' - iKey2)) % 26)) + 'a'); 
             }
             else {
                 sDecipher = sDecipher + sText[i];
