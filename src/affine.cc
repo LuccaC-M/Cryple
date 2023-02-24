@@ -9,6 +9,7 @@ namespace affine {
             if (flag == 1)
                 return i;
         }
+        return 0;
     }
 
     void ciph() {
@@ -62,7 +63,7 @@ namespace affine {
         for (int i = 0; i <= sText.length(); i++) {
 
             if (isalpha(sText[i]) && isupper(sText[i])) {
-                sDecipher = sDecipher + (char) (((iKey3 * ((sText[i]-'A' - iKey2)) % 26)) + 'A'); 
+                sDecipher = sDecipher + (char) (((iKey3 * ((sText[i] -'A' - iKey2)) % 26)) + 'A'); 
             }
             // FIXME: Do not printing right output
             else if (isalpha(sText[i])) {
