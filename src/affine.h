@@ -6,7 +6,6 @@
 #include <cctype>
 
 namespace affine {
-    int  modInverse(int num,int mod);
     void ciph();
     void deciph();
 }

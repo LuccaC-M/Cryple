@@ -3,62 +3,62 @@
 namespace az{
     void ciph() {
 //  Variables
-        std::string sText, sCipher, sKey;
-        int iTemp;
+        std::string text, cipher_text;
+        int temp;
 
         std::cout << "Enter text > ";
-        std::getline(std::cin, sText);
+        std::getline(std::cin, text);
 
 //  for loop to define the cipher text    
-        for (int i = 0; i < sText.length(); i++) {
+        for (int i = 0; i < text.length(); i++) {
         
-            if (isalpha(sText[i]) && isupper(sText[i])) {
+            if (isalpha(text[i]) && isupper(text[i])) {
 
-                iTemp = sText[i] - 'A' + 1;
-                //passing iTemp to a string
-                sCipher = sCipher + std::to_string(iTemp) + " ";
+                temp = text[i] - 'A' + 1;
+                //passing temp to a string
+                cipher_text = cipher_text + std::to_string(temp) + " ";
             }
-            else if (isalpha(sText[i]))
+            else if (isalpha(text[i]))
             {
             
-                iTemp = sText[i] - 'a' + 1;
-                sCipher = sCipher + std::to_string(iTemp) + " ";
+                temp = text[i] - 'a' + 1;
+                cipher_text = cipher_text + std::to_string(temp) + " ";
             }
             else {
-                sCipher = sCipher + sText[i];
+                cipher_text = cipher_text + text[i];
             }
 
         }
 //  printing out Cipher text    
-        std::cout << sCipher << std::endl;
+        std::cout << cipher_text << std::endl;
     }
     void deciph() {
 //  Variables
-        std::string sText, sDecipher, sKey;
-        int iTemp;
+        std::string text, deciphered_text;
+        int temp;
 
         std::cout << "Enter text > ";
-        std::getline(std::cin, sText);
+        std::getline(std::cin, text);
 
 //  for loop to decrypt the text    
-        for (int i = 0; i < sText.length(); i++) {
+        for (int i = 0; i < text.length(); i++) {
         
 
-            if (isdigit(sText[i]) && !isdigit(sText[i+1])) {
+            if (isdigit(text[i]) && !isdigit(text[i+1])) {
 
-                sDecipher = sDecipher + (char)(sText[i] + 48);
+                deciphered_text = deciphered_text + (char)(text[i] + 48);
             }
-            else if (isdigit(sText[i]) && isdigit(sText[i+1])) {
-                iTemp = (((((sText[i] - 48) * 10) - 1) + (sText[i+1] - 48)) + 'a');
-                sDecipher = sDecipher + (char) iTemp;
+            else if (isdigit(text[i]) && isdigit(text[i+1])) {
+                temp = (((((text[i] - 48) * 10) - 1) + (text[i+1] - 48)) + 'a');
+                deciphered_text = deciphered_text + (char) temp;
                 i++;
             }
-            else if (!isspace(sText[i])) {
-                sDecipher = sDecipher + sText[i];
+            else if (!isspace(text[i])) {
+                deciphered_text = deciphered_text + text[i];
             }
 
         }
 //  printing out Cipher text    
-        std::cout << sDecipher << std::endl;
+        std::cout << deciphered_text << std::endl;
     }
 }

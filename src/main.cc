@@ -19,12 +19,12 @@ int main(const int argc, const char *argv[]) {
 		return 0;
 	}
 
-	 std::string sTypecyph = argv[2];
-     std::string sDeen = argv[1];
+	 std::string type_of_cipher = argv[2];
+     std::string de_or_encrypt = argv[1];
 
-	 cmd::options(sTypecyph);
+	 cmd::options(type_of_cipher);
 
-	if (sDeen == "encryption" || sDeen == "e") {	
+	if (de_or_encrypt == "encryption" || de_or_encrypt == "e") {	
 		
 		if (bCaesar) {
 			caesar::ciph();
@@ -43,7 +43,7 @@ int main(const int argc, const char *argv[]) {
 			return 3;
 		}
 	}
-	else if (sDeen == "decryption" || sDeen == "d") {	
+	else if (de_or_encrypt == "decryption" || de_or_encrypt == "d") {	
 
 		if (bCaesar) {
 			caesar::deciph();

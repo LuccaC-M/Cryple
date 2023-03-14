@@ -5,59 +5,59 @@
 namespace caesar{
     void ciph() {
 
-        std::string sText, sCipher;
-        int iKey;
+        std::string text, cipher_text;
+        int key;
 
         do {
             std::cout << "Enter key > ";
-            std::cin >> iKey;
-        } while(iKey < 0 || iKey > CAESAR_MAXKEY);
+            std::cin >> key;
+        } while(key < 0 || key > CAESAR_MAXKEY);
         
         std::cout << "Enter text > ";
         std::cin.ignore();
-        std::getline(std::cin, sText);
-        sCipher = sText;
+        std::getline(std::cin, text);
+        cipher_text = text;
         
-        for (int i = 0; i < sText.length(); i++) {
+        for (int i = 0; i < text.length(); i++) {
 
-            if (isalpha(sText[i]) && isupper(sText[i])) {
-                sCipher[i] = (sText[i] - 'A' + iKey) % 26 + 'A';
+            if (isalpha(text[i]) && isupper(text[i])) {
+                cipher_text[i] = (text[i] - 'A' + key) % 26 + 'A';
             }
-            else if (isalpha(sText[i]))
+            else if (isalpha(text[i]))
             {
-                sCipher[i] = (sText[i] - 'a' + iKey) % 26 + 'a';
+                cipher_text[i] = (text[i] - 'a' + key) % 26 + 'a';
             }
         }
-        std::cout << sCipher << std::endl;
+        std::cout << cipher_text << std::endl;
     }
     void deciph() {
 
-        std::string sText, sDecipher;
-        int iKey = 0;
+        std::string text, deciphered_text;
+        int key = 0;
 
         do {
             std::cout << "Enter key > ";
-            std::cin >> iKey;
+            std::cin >> key;
 
-        } while(iKey <= 0 || iKey >= CAESAR_MAXKEY);
+        } while(key <= 0 || key >= CAESAR_MAXKEY);
         
-        std::cout << iKey;
+        std::cout << key;
         
         std::cout << "Enter text > ";
         std::cin.ignore();
-        std::getline(std::cin, sText);
-        sDecipher = sText;
+        std::getline(std::cin, text);
+        deciphered_text = text;
         
-        for (int i = 0; i < sText.length(); i++) {
+        for (int i = 0; i < text.length(); i++) {
 
-            if (isalpha(sText[i]) && isupper(sText[i])) {
-                sDecipher[i] = (sText[i] - 'A' - iKey + 26) % 26 + 'A';
+            if (isalpha(text[i]) && isupper(text[i])) {
+                deciphered_text[i] = (text[i] - 'A' - key + 26) % 26 + 'A';
             }
-            else if (isalpha(sText[i]))
+            else if (isalpha(text[i]))
             {
-                sDecipher[i] = (sText[i] - 'a' - iKey + 26) % 26 + 'a';
+                deciphered_text[i] = (text[i] - 'a' - key + 26) % 26 + 'a';
             }
         }
-        std::cout << sDecipher << std::endl;
+        std::cout << deciphered_text << std::endl;
     }
 }
