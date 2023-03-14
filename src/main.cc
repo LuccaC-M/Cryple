@@ -54,7 +54,7 @@ int main(const int argc, const char *argv[]) {
 			return 0;
 		}
 		else if(bAffine) {
-            std::cout << "For now not :(" << std::endl;
+            affine::deciph();
 			return 0;
 		}
 		else {

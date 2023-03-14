@@ -1,17 +1,6 @@
 #include "affine.h"
 
 namespace affine {
-
-    int modInverse(int num, int mod) {
-        int flag;
-        for (int i = 0; i < mod; i++) {
-            flag = (num * i) % mod;
-            if (flag == 1)
-                return i;
-        }
-        return 0;
-    }
-
     void ciph() {
         
         std::string sText, sCipher;
@@ -44,8 +33,8 @@ namespace affine {
     }
     void deciph() {
         
-        std::string sText, sDecipher;
-        int iKey1 = 0, iKey2 = 0;
+        std::string sText = "", sDecipher = "";
+        int iKey1 = 0, iKey2 = 0, iKey3 = 0;
 
         do {
             std::cout << "Input key 1 > ";
@@ -53,21 +42,32 @@ namespace affine {
             std::cout << "Input key 2 > ";
             std::cin >> iKey2;
         } while(iKey1 < 1 && iKey2 < 1);
+    
+        if (iKey1 % 2 == 0 || iKey1 == 13) {
+            std::cout << "Cannot decrypt since a isn't coprime of m\n";
+            return;
+        }
+        
+        //Find a^-1 (the modular multiplicative inverse of a)
+        for (int i = 0; i < 26; i++)
+        {
+            if ((iKey1 * i % 26) == 1)
+            {
+                iKey3 = i;
+            }
+        }
         
         std::cout << "Enter text > ";
         std::cin.ignore();
         std::getline(std::cin, sText);
         
-        int iKey3 = modInverse(iKey1, 26);
-
         for (int i = 0; i <= sText.length(); i++) {
 
             if (isalpha(sText[i]) && isupper(sText[i])) {
-                sDecipher = sDecipher + (char) (((iKey3 * ((sText[i] -'A' - iKey2)) % 26)) + 'A'); 
+                sDecipher = sDecipher + (char) ((sText[i] +'A' - iKey2) * iKey3 % 26 + 'A'); 
             }
-            // FIXME: Do not printing right output
             else if (isalpha(sText[i])) {
-                sDecipher = sDecipher + (char) (((iKey3 * ((sText[i]+'a' - iKey2)) % 26)) + 'a'); 
+                sDecipher = sDecipher + (char) ((sText[i] + 'a' - iKey2) * iKey3 % 26 + 'a');
             }
             else {
                 sDecipher = sDecipher + sText[i];
