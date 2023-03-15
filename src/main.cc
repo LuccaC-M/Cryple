@@ -19,28 +19,28 @@ int main(const int argc, const char *argv[]) {
 		return 0;
 	}
 
-	 std::string type_of_cipher = argv[2];
-     std::string de_or_encrypt = argv[1];
+    std::string type_of_cipher = argv[2];
+    std::string de_or_encrypt = argv[1];
 
-	 cmd::options(type_of_cipher);
+    cmd::options(type_of_cipher);
 
 	if (de_or_encrypt == "encryption" || de_or_encrypt == "e") {	
 		
-		if (bCaesar) {
-			caesar::ciph();
-			return 0;
+        if (bCaesar) {
+            caesar::ciph();
+            return 0;
 		}
-		else if(bAZ) {
-			az::ciph();
-			return 0;
+        else if(bAZ) {
+            az::ciph();
+            return 0;
 		}
-		else if(bAffine) {
-			affine::ciph();
-			return 0;
+        else if(bAffine) {
+            affine::ciph();
+            return 0;
 		}
-		else {
-			std::cout << "Invalid method" << std::endl;
-			return 3;
+        else {
+            std::cout << "Invalid method" << std::endl;
+            return 3;
 		}
 	}
 	else if (de_or_encrypt == "decryption" || de_or_encrypt == "d") {	
