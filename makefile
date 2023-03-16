@@ -8,7 +8,9 @@ SRCS :=  \
     caesar.cc \
     affine.cc \
 	A1Z26.cc \
-	cmd.cc 
+	cmd.cc \
+	piglatin.cc
+
 SRCS := $(SRCS:%=$(SRC_DIR)/%)
 
 CXX := g++
