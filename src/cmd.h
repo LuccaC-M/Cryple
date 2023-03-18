@@ -5,7 +5,7 @@
 
 extern bool bCaesar, bAffine, bAZ;
 namespace cmd {
-    void options(std::string sCmd);
-    void help();
+    int options(std::string sCmd);
+    void print_help();
 }
 #endif

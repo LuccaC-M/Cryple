@@ -1,65 +1,67 @@
-// BEGIN OF INCLUDES
 #include <iostream>
 #include <string>
+#include <cstring>
+
 #include "cmd.h"
 #include "caesar.h"
 #include "A1Z26.h"
 #include "affine.h"
-// END OF INCLUDES
+#include "piglatin.h"
 
 #define MAX 2
 
 int main(const int argc, const char *argv[]) {
 
 	if (argc < 2) {
-		cmd::help();
+		cmd::print_help();
 		return 1;
-	} else if ((std::string) argv[1] == "--help") {
-		cmd::help();
+	} 
+    if (!std::strcmp(argv[1], "--help") || !std::strcmp(argv[1], "-h")) {
+		cmd::print_help();
 		return 0;
 	}
 
-    std::string type_of_cipher = argv[2];
-    std::string de_or_encrypt = argv[1];
 
-    cmd::options(type_of_cipher);
+    int option = cmd::options((std::string) argv[2]);
 
-	if (de_or_encrypt == "encryption" || de_or_encrypt == "e") {	
-		
-        if (bCaesar) {
-            caesar::ciph();
-            return 0;
-		}
-        else if(bAZ) {
-            az::ciph();
-            return 0;
-		}
-        else if(bAffine) {
-            affine::ciph();
-            return 0;
-		}
-        else {
-            std::cout << "Invalid method" << std::endl;
-            return 3;
-		}
+	if (std::strcmp(argv[1], "e")) {	
+        switch(option) {
+            case 1:
+                caesar::ciph();
+                break;
+            case 2:
+                az::ciph();
+                break;
+            case 3:
+                affine::ciph();
+                break;
+            case 4:
+                std::cout << "help!";
+                pl::ciph();
+                break;
+            default:
+                std::cout << "Invalid option\n"; 
+                break;
+        }
 	}
-	else if (de_or_encrypt == "decryption" || de_or_encrypt == "d") {	
+	else if (std::strcmp(argv[1], "d")) {	
 
-		if (bCaesar) {
-			caesar::deciph();
-			return 0;
-		}
-		else if(bAZ) {
-			az::deciph();
-			return 0;
-		}
-		else if(bAffine) {
-            affine::deciph();
-			return 0;
-		}
-		else {
-			std::cout << "Invalid method" << std::endl;
-			return 3;
-		}
+        switch(option) {
+            case 1:
+                caesar::deciph();
+                break;
+            case 2:
+                az::deciph();
+                break;
+            case 3:
+                affine::deciph();
+                break;
+            case 4:
+               // TODO pl::deciph();
+                break;
+            default:
+                std::cout << "Invalid option\n"; 
+                break;
+        }
 	}
 }

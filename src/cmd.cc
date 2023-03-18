@@ -1,10 +1,7 @@
 #include "cmd.h"
 
-
-bool bCaesar = false, bAffine = false, bAZ = false;
-
 namespace cmd {
-    void options(std::string sCmd) {
+    int options(std::string sCmd) {
     
         int iLength = sCmd.length();
 
@@ -15,20 +12,22 @@ namespace cmd {
                 switch(sCmd[i]) {
 
                     case 'c':
-                        bCaesar = true;
-                        break;
+                        return 1;
                     case 'a':
-                        bAZ = true;
-                        break;
+                        return 2;
                     case 'e':
-                        bAffine = true;
+                        return 3;
+                    case 'p':
+                        return 4;
+                    default:
                         break;
                 }
             }
         }
+        return -500;
     }
 
-    void help() {
+    void print_help() {
         std::cout
             << "Usage:\n"
             << "       cryple {command} {arguments}\n"
