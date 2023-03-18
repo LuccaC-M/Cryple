@@ -14,7 +14,7 @@ SRCS :=  \
 SRCS := $(SRCS:%=$(SRC_DIR)/%)
 
 CXX := g++
-
+CXXFLAGS := -Wall -g
 
 RM := rm -f
 
@@ -25,7 +25,7 @@ RM := rm -f
 all: $(NAME)
 
 $(NAME): $(SRCS)
-	$(CXX) -o $(NAME) $(SRCS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(SRCS)
 	$(info CREATED $(NAME))
 	mkdir -p ~/.local/bin/
 	mv $(NAME) ~/.local/bin
