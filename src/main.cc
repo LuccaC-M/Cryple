@@ -23,26 +23,17 @@ int main(const int argc, const char *argv[]) {
 
 
     int option = cmd::options((std::string) argv[2]);
+    std::cout << (option == 4);
 
 	if (std::strcmp(argv[1], "e")) {	
-        switch(option) {
-            case 1:
-                caesar::ciph();
-                break;
-            case 2:
-                az::ciph();
-                break;
-            case 3:
-                affine::ciph();
-                break;
-            case 4:
-                std::cout << "help!";
-                pl::ciph();
-                break;
-            default:
-                std::cout << "Invalid option\n"; 
-                break;
-        }
+        if (option == 1)
+            caesar::ciph();
+        else if (option == 2)
+            az::ciph();
+        else if (option == 3)
+            affine::ciph();
+        else if (option == 4)
+            pl::ciph();
 	}
 	else if (std::strcmp(argv[1], "d")) {	
 
